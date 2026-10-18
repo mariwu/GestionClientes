@@ -1,4 +1,5 @@
 ﻿//Importa las validaciones ([Required], [EmailAddress]...
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 namespace GestionClientes.Models
 {
@@ -13,6 +14,7 @@ namespace GestionClientes.Models
         //PRECIO
         [Required(ErrorMessage = "El precio es obligatorio")]
         [Range(0, 10000, ErrorMessage ="El precio debe estar entre 0 y 10.000" )]
+        [Precision(10, 2)]   // 10 cifras en total, 2 decimales -> hasta 99.999.999,99
         public decimal Precio { get; set; }
         //DESCRIPCION - opcional
         public string? Descripcion { get; set; }
